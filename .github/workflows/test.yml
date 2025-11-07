@@ -33,3 +33,13 @@ jobs:
       with:
         name: masked-files
         path: output_files/
+    - name: checkout output-files
+      run: |
+       ls output_files/
+      
+      
+    
+      
+
+
+      
