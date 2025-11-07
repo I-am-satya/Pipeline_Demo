@@ -1,6 +1,6 @@
-Customer_Name	Customer_ID	Customer_EMail	Phone_Number	City	Country	Status
-Alice Johnson	12345678	alice.johnson@example.com	1234567890	New York	USA	Active
-Bob Smith	87654321	bob.smith@example.com	2345678901	Los Angeles	USA	Inactive
-Charlie Lee	11223344	charlie.lee@example.com	3456789012	Chicago	USA	Active
-Diana Prince	44332211	diana.prince@example.com	4567890123	Houston	USA	Inactive
-Ethan Hunt	99887766	ethan.hunt@example.com	5678901234	Phoenix	USA	Active
+Customer_Name,Customer_ID,Customer_EMail,Phone_Number,City,Country,Status
+Alice Johnson,12345678,alice.johnson@example.com,1234567890,New York,USA,Active
+Bob Smith,87654321,bob.smith@example.com,2345678901,Los Angeles,USA,Inactive
+Charlie Lee,11223344,charlie.lee@example.com,3456789012,Chicago,USA,Active
+Diana Prince,44332211,diana.prince@example.com,4567890123,Houston,USA,Inactive
+Ethan Hunt,99887766,ethan.hunt@example.com,5678901234,Phoenix,USA,Active
