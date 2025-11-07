@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 import json
-from faker import Faker
+from faker import Faker 
 
 fake = Faker()
 
