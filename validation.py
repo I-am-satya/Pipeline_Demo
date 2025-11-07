@@ -5,7 +5,7 @@ import json
 with open("masking_rules.json", "r") as f:
     rules = json.load(f)
 
-input_dir = "input_files"
+input_dir = "https://github.com/I-am-satya/Pipeline_Demo/tree/d086c0fe4e2cad428f92d8f8e605b83228733016/input_files"
 output_dir = "output_files"
 print(input_dir, output_dir)
 for filename in os.listdir(input_dir):
