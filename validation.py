@@ -7,7 +7,7 @@ with open("masking_rules.json", "r") as f:
 
 input_dir = "input_files"
 output_dir = "output_files"
-
+print(input_dir, output_dir)
 for filename in os.listdir(input_dir):
     if filename.endswith(".csv"):
         input_path = os.path.join(input_dir, filename)
