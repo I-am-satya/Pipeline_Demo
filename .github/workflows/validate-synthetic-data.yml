@@ -1,5 +1,4 @@
 name: Validate Synthetic Data Script
-
 on: [push,pull_request]
 
 jobs:
