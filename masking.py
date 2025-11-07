@@ -11,7 +11,7 @@ with open("masking_rules.json", "r") as f:
 
 digit_map = str.maketrans("0123456789", "9876543210")
 
-os.makedirs("output_files", exist_ok=True)
+os.makedirs("output_files/", exist_ok=True)
 
 for filename in os.listdir("input_files"):
     if filename.endswith(".csv"):
@@ -34,7 +34,7 @@ for filename in os.listdir("input_files"):
                 elif rule == "digit_transform":
                     df[column] = df[column].astype(str).apply(lambda x: x.translate(digit_map))
 
-        output_path = os.path.join("output_files", filename)
+        output_path = os.path.join("output_files/", filename)
         df.to_csv(output_path, index=False)
 
 print("✅ Masking completed. Files saved to output_files/")
