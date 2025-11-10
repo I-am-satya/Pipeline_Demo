@@ -9,29 +9,42 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-strategy:
-  matrix:
-    Python38:
-      python.version: '3.8'
-    Python39:
-      python.version: '3.9'
-    Python310:
-      python.version: '3.10'
-    Python311:
-      python.version: '3.11'
+jobs:
+- job: build
+  strategy:
+    matrix:
+      Python38:
+        python.version: '3.8'
+      Python39:
+        python.version: '3.9'
+      Python310:
+        python.version: '3.10'
+      Python311:
+        python.version: '3.11'
 
-steps:
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '$(python.version)'
-  displayName: 'Use Python $(python.version)'
+  steps:
+    - task: Checkout@1
+      displayName: 'Checkout code from GitHub'
 
-- script: |
-    python -m pip install --upgrade pip
-    pip install -r requirements.txt
-  displayName: 'Install dependencies'
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: '$(python.version)'
+      displayName: 'Set up Python $(python.version)'
 
-- script: |
-    pip install pytest pytest-azurepipelines
-    pytest
-  displayName: 'pytest'
+    - script: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+      displayName: 'Install Python dependencies'
+
+    - script: python masking.py
+      displayName: 'Run masking script'
+
+    - script: python -m unittest test_masking.py
+      displayName: 'Run unit tests'
+
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: 'output_files'
+        ArtifactName: 'masked-files'
+        publishLocation: 'Container'
+      displayName: 'Upload masked files as artifact'
