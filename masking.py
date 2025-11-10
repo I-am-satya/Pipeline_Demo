@@ -5,7 +5,6 @@ from faker import Faker
 
 fake = Faker()
 
-
 with open("masking_rules.json", "r") as f:  
     rules = json.load(f)
 
